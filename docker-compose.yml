@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: ryu
+      POSTGRES_PASSWORD: ABDK
+      POSTGRES_DB: ryoka
+    ports:
+      - "5432:5432"
