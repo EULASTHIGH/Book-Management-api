@@ -27,6 +27,11 @@ public class BookService {
         bookRepository.deleteById(id);
     }
 
+    public Book getBookById(Integer id) {
+        return bookRepository.findById(id).orElseThrow(() ->
+                new BookNotFoundException(id));
+    }
+
     public Book updateBook(Integer id, String title, String author, Float price){
         Book book = bookRepository.findById(id).orElseThrow(()->
                 new BookNotFoundException(id));
