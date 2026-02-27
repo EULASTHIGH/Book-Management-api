@@ -4,8 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import org.springframework.beans.factory.annotation.Value;
 
 @Entity
 public class Book {
@@ -15,9 +16,9 @@ public class Book {
     private Integer id;
     @NotBlank(message = "Title can't be empty")
     private String title;
-    @NotBlank(message = "Author can't be empty")
+    @NotBlank(message = "Authod cant be empty")
     private String author;
-    @Min(value = 0, message = "Price cannot be negative")
+    @Min(value = 0 , message = "Price cannot be less than zero")
     private Float price;
 
     public Book() {
