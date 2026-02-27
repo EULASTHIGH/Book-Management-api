@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Min;
 
 @Entity
 public class Book {
@@ -11,8 +13,11 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotBlank(message = "Title can't be empty")
     private String title;
+    @NotBlank(message = "Author can't be empty")
     private String author;
+    @Min(value = 0, message = "Price cannot be negative")
     private Float price;
 
     public Book() {
